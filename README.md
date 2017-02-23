@@ -1,2 +1,2 @@
 # react-redux
-react-redux starter kit for learning purpose
+react-redux starter kit for learning
