@@ -2,20 +2,21 @@
   "name": "pluralsight-redux-starter",
   "version": "1.0.0",
   "description": "Starter kit for React and Redux Pluralsight course by Cory House",
-  "scripts" : {
-    "prestart" :"babel-node tools/startMessage.js",
-    "start" :"npm-run-all --parallel open:src lint:watch test:watch",
-    "open:src" : "babel-node tools/srcServer.js",
-    "lint" : "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch" :  "npm run lint -- --watch",
-    "test" : "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "test:watch" : "npm run test -- --watch"
+  "scripts": {
+    "prestart": "babel-node tools/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "open:src": "babel-node tools/srcServer.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
+    "chart.js": "^2.5.0",
     "jquery": "2.2.3",
     "react": "15.0.2",
     "react-dom": "15.0.2",
@@ -64,6 +65,7 @@
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
+   
   },
   "repository": {
     "type": "git",
