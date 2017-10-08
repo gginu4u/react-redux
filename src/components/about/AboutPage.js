@@ -1,14 +1,12 @@
-/**
- * Created by ginugopinath on 22/01/17.
- */
 import React from 'react';
 
 class AboutPage extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <h1>About</h1>
-        <p>This app used React, Redux, React Router, and varitety og other helpful libraries.</p>
+        <p>This application uses React, Redux, React Router and a variety
+          of other helpful libraries.</p>
       </div>
     );
   }

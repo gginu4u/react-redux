@@ -1,6 +1,3 @@
-/**
- * Created by ginugopinath on 22/01/17.
- */
 // This file is written in ES5 since it's not transpiled by Babel.
 // This file does the following:
 // 1. Sets Node environment variable

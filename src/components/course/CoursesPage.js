@@ -1,56 +1,60 @@
-/**
- * Created by ginugopinath on 26/01/17.
- */
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as courseActions from '../../actions/courseActions';
 import {bindActionCreators} from 'redux';
+import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
+import {browserHistory} from 'react-router';
 
 class CoursesPage extends React.Component {
-
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
-
-     
+    // better performance if binding functions here
+    // if used in render method it would create
+    // a newly bound function each time class renders
+    this.courseRow = this.courseRow.bind(this);
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
-
-
-  courseRow(course, index){
+  courseRow(course, index) {
     return <div key={index}>{course.title}</div>;
   }
 
-  render(){
+  redirectToAddCoursePage() {
+    browserHistory.push('/course');
+  }
+
+  render() {
     const {courses} = this.props;
 
-    return(
+    return (
       <div>
-        <h1>Courses Page!!!</h1>
-        <CourseList courses = {courses}/>
- 
+        <h1>Courses</h1>
+        <input
+          type="submit"
+          value="Add Course"
+          className="btn btn-primary"
+          onClick={this.redirectToAddCoursePage} />
+        <CourseList courses={courses}/>
       </div>
     );
   }
 }
 
 CoursesPage.propTypes = {
-  //dispatch : PropTypes.func.isRequired,
-  courses : PropTypes.array.isRequired,
-  actions : PropTypes.object.isRequired
+  courses: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
   return {
-    courses : state.courses
+    courses: state.courses
   };
 }
 
-function mapDispatchToProps(dispatch){
-  return{
-    //createCourse : course => dispatch(courseActions.createCourse(course))
-
-    actions : bindActionCreators(courseActions, dispatch)
+// more elegant and terse solution to wrap dispatch
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(courseActions, dispatch)
   };
 }
 
